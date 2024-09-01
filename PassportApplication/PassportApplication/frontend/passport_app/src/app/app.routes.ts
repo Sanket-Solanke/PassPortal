@@ -16,7 +16,8 @@ import { BreadcrumbComponent } from './modules/shared/breadcrumb/breadcrumb.comp
 import { UserLayoutComponent } from './modules/user-module/user-layout/user-layout.component';
 import { PageNotFoundComponent } from './modules/shared/page-not-found/page-not-found.component';
 import { FaqComponent } from './modules/user-module/faq/faq.component';
-
+import {LoginComponent} from './modules/auth/login/login.component'
+import {SignupComponent} from './modules/auth/signup/signup.component'
 export const routes: Routes = [
   //
   { path: '', component: LandingPageComponent },
@@ -61,17 +62,11 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () =>
-      import('./modules/auth/login/login.component').then(
-        (m) => m.LoginComponent
-      ),
+    component:LoginComponent,
   },
   {
     path: 'signup',
-    loadComponent: () =>
-      import('./modules/auth/signup/signup.component').then(
-        (m) => m.SignupComponent
-      ),
+ component:SignupComponent,
   },
   {
     path: 'application-form',

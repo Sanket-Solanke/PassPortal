@@ -7,11 +7,12 @@ import { ToastService } from '../../../../services/toast.service';
 import { User } from '../../../../models/user.model';
 import { UserService } from '../../../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { UserNavbarComponent } from '../../user-navbar/user-navbar.component';
 
 @Component({
   selector: 'app-update-profile',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule,CommonModule],
+  imports: [RouterLink,ReactiveFormsModule,CommonModule,UserNavbarComponent],
   templateUrl: './update-profile.component.html',
   styleUrl: './update-profile.component.css'
 })

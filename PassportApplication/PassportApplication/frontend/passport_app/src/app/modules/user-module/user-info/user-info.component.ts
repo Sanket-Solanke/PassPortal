@@ -4,11 +4,12 @@ import { User } from '../../../models/user.model';
 import { RefreshService } from '../../../services/refresh.service';
 import { ToastService } from '../../../services/toast.service';
 import { AuthService } from '../../../services/auth.service';
+import { UserNavbarComponent } from '../user-navbar/user-navbar.component';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,UserNavbarComponent],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })

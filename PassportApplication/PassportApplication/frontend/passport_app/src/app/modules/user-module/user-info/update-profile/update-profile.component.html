@@ -1,7 +1,8 @@
-<div class="container mt-5">
-  <div class="card p-3 col-md-6" >
+<app-user-navbar class="mb-5"></app-user-navbar>
+<div class="container mt-5 p-5">
+  <div class="card p-3 col-md-6 mt-5" >
 
-    <div class="card-header rounded mb-3">    <h2 class="my-2 c1 text-white fw-bold">Update Profile</h2></div>
+    <div class="card-header rounded mb-3 ">    <h2 class="my-2 c1 text-white fw-bold">Update Profile</h2></div>
 
     <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
