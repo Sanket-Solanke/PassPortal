@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ApplicationFormService } from '../../services/applicationForm.service';
-import { User } from '../../models/user.model';
+import { ApplicationFormService } from '../../../services/applicationForm.service';
+import { User } from '../../../models/user.model';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-import { MasterDetails } from '../../models/application.model';
-import { ApplicationFormStatus } from '../../models/applicationstatus.model';
+import { MasterDetails } from '../../../models/application.model';
+import { ApplicationFormStatus } from '../../../models/applicationstatus.model';
 
 @Component({
   selector: 'app-application-status',
