@@ -18,7 +18,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-2">
           <a
-            class="nav-link active active"
+            class="nav-link active"
             aria-current="page"
             routerLink="/user-home"
           >
@@ -47,7 +47,7 @@
         </li>
         <li class="nav-item me-2">
           <a class="nav-link active" routerLink="/user-home/payment">
-            <i class="fas fas fa-receipt"></i> Payment
+            <i class="fas fa-receipt"></i> Payment
           </a>
         </li>
         <li class="nav-item me-2">
@@ -56,11 +56,28 @@
           </a>
         </li>
       </ul>
-      <div class="d-flex">
-        <button (click)="logout()" class="btn btn-primary">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
+
+      <!-- Profile Dropdown -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle active"
+            href="#"
+            id="profileDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fas fa-user-circle me-1"></i> {{username}}
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" routerLink="/profile">Profile</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" routerLink="./">Back</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
