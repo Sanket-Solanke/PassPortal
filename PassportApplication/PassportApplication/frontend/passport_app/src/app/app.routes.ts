@@ -3,13 +3,13 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { ApplicationFormComponent } from './modules/application-form/application-form.component';
 import { routes as applicationFormRoutes } from './modules/application-form/form.routes';
-import { UserInfoComponent } from './modules/user-info/user-info.component';
+import { UserInfoComponent } from './modules/user-module/user-info/user-info.component';
 import { ApplicationInitStatus } from '@angular/core';
 import { ApplicationStatusComponent } from './modules/user-module/application-status/application-status.component';
 import { FeedbackComponent } from './modules/user-module/feedback/feedback.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { PaymentComponent } from './modules/payment/payment.component';
-import { routes as userRoutes } from './modules/user-info/user.routes';
+import { routes as userRoutes } from './modules/user-module/user-info/user.routes';
 import { AuthGuard } from './guards/auth.guard';
 import { UserHomeComponent } from './modules/user-module/user-home/user-home.component';
 import { BreadcrumbComponent } from './modules/shared/breadcrumb/breadcrumb.component';
@@ -80,7 +80,7 @@ export const routes: Routes = [
     children: applicationFormRoutes,
   },
   {
-    path: 'user',
+    path: 'profile',
     canActivate: [AuthGuard],
     children: userRoutes,
   },

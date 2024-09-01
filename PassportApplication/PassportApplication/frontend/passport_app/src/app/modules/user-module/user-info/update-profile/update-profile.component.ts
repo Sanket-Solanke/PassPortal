@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
-import { RefreshService } from '../../../services/refresh.service';
-import { ToastService } from '../../../services/toast.service';
-import { User } from '../../../models/user.model';
-import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../../services/auth.service';
+import { RefreshService } from '../../../../services/refresh.service';
+import { ToastService } from '../../../../services/toast.service';
+import { User } from '../../../../models/user.model';
+import { UserService } from '../../../../services/user.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -75,7 +75,7 @@ export class UpdateProfileComponent implements OnInit{
           this.currentUser = updateUser;
           localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
           this.toastService.showSuccess("Profile Updated Successfully");
-          this.router.navigate(['user']);
+          this.router.navigate(['profile']);
         },
         error: (err) => console.log(err)
       });

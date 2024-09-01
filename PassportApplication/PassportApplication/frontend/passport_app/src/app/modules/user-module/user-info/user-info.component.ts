@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { User } from '../../models/user.model';
-import { RefreshService } from '../../services/refresh.service';
-import { ToastService } from '../../services/toast.service';
-import { AuthService } from '../../services/auth.service';
+import { User } from '../../../models/user.model';
+import { RefreshService } from '../../../services/refresh.service';
+import { ToastService } from '../../../services/toast.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-user-info',

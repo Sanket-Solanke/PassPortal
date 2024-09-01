@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="row col-md-4 ">
+      <div class="col">
+        <div class="card profile-card">
+          <div class="profile-header">
+          
+            <div>
+          
+              <h4>{{currentUser?.firstname + " " + currentUser?.lastname}}</h4>
+            </div>
+            <button class="btn btn-nxt" routerLink="update-profile">Update Profile</button>
+          </div>
+          <div class="profile-details row">
+            <div class="col-md-6">
+              <h5>First Name</h5>
+              <p>{{currentUser?.firstname}}</p>
+         
+              <h5>Contact No.</h5>
+              <p>{{currentUser?.mobileNo}}</p>
+           
+              <h5>User ID</h5>
+              <p>  {{currentUser?.userId}}</p>
+            
+  
+            </div>
+            <div class="col-md-6">
+              <h5>Last Name</h5>
+              <p>{{currentUser?.lastname}}</p>
+              <h5>Email</h5>
+              <p>{{currentUser?.email}}</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>

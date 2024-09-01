@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="card p-3 col-md-6" >
+
+    <div class="card-header rounded mb-3">    <h2 class="my-2 c1 text-white fw-bold">Update Profile</h2></div>
+
+    <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name" formControlName="firstname">
+        <p class="text-danger mt-1" *ngIf="updateProfileForm.get('firstname')?.invalid && updateProfileForm.get('firstname')?.touched">
+          Please enter at least three characters.
+        </p>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" formControlName="lastname">
+        <p class="text-danger mt-1" *ngIf="updateProfileForm.get('lastname')?.invalid && updateProfileForm.get('lastname')?.touched">
+          Please enter at least three characters.
+        </p>
+      </div>
+
+      <div class="mb-3">
+        <label for="mobileNo" class="form-label">Phone</label>
+        <input type="tel" class="form-control" name="mobileNo" id="mobileNo" placeholder="Phone" formControlName="mobileNo">
+        <p class="text-danger mt-1" *ngIf="updateProfileForm.get('mobileNo')?.invalid && updateProfileForm.get('mobileNo')?.touched">
+          Please enter a 10-digit mobile number.
+        </p>
+      </div>
+
+      
+
+      <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-prev" routerLink="../">Back</button>
+        <button type="submit" class="btn btn-nxt">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+</div>
