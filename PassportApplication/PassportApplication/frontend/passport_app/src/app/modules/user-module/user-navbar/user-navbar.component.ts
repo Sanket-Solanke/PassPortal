@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ChangeDetectorRef,  DoCheck, inject, OnInit } from '@angular/core';
 
+import { User } from '../../../models/user.model';
+import { UserService } from '../../../services/user.service';
+import { RefreshService } from '../../../services/refresh.service';
+import { ToastService } from '../../../services/toast.service';
+import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-user-navbar',
   standalone: true,
@@ -8,14 +14,31 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './user-navbar.component.html',
   styleUrl: './user-navbar.component.css'
 })
-export class UserNavbarComponent {
+export class UserNavbarComponent implements  DoCheck {
+ 
+  isActivate: boolean = false;
+  private router = inject(Router);
+  private authService=inject(AuthService);
+  private toastService=inject(ToastService)
+  currentUser: User | null = null;
 
-  constructor(private router: Router) {}
-  logout() {
+  ngDoCheck(): void {
+    this.checkUserStatus();
+  }
+  checkUserStatus() {
+    const loggedInUser = this.authService.getLoggedInUser();
+    if(loggedInUser){
 
-    sessionStorage.clear();
+      this.isActivate = true;
+    }else{
+      this.isActivate=false;
+    }
+    }
 
-    
-    this.router.navigate(['/']);
+ 
+  logout(): void {
+    this.authService.logout();
+    this.isActivate = false;
+    this.router.navigate(['/login']); 
   }
 }
