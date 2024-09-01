@@ -42,7 +42,7 @@
     border: 1px solid transparent;
     border-radius: 0.25rem;
     background-color: #f0e3e4; /* Light gray background */
-    color: #e03444; /* Blue text color */
+    color: var(--color-primary); /* Blue text color */
     padding: 0.5rem 1rem;
     margin-right: 2px; /* Space between buttons */
     transition: background-color 0.15s ease-in-out;
@@ -50,11 +50,11 @@
 
 .nav-tabs .nav-item .nav-link:hover {
     background-color: #afc5db; /* Slightly darker gray on hover */
-    color: #0056b3;
+    color: var(--color-primary);
 }
 
 .nav-tabs .nav-item .nav-link.active {
-    background-color: #e03444; /* Blue background for active tab */
+    background-color:var(--color-primary); /* Blue background for active tab */
     color: #fff; /* White text for active tab */
 }
 
@@ -105,13 +105,13 @@
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #e03444;
+    color: var(--color-primary);
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
 
 .pagination .page-link:hover {
-    color: #0056b3;
+    color: var(--color-primary);
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
@@ -120,8 +120,8 @@
 .pagination .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #dd3646;
-    border-color: #ec0c22;
+    background-color: var(--color-primary);
+    border-color:var(--color-primary);
 }
 
 .pagination .page-item.disabled .page-link {
