@@ -2,7 +2,7 @@ import { LandingPageComponent } from './modules/public/landing-page/landing-page
 import { Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { ApplicationFormComponent } from './modules/user-module/application-form/application-form.component';
-import { routes as applicationFormRoutes } from './modules/application-form/form.routes';
+import { routes as applicationFormRoutes } from './modules/user-module/application-form/form.routes';
 import { UserInfoComponent } from './modules/user-module/user-info/user-info.component';
 import { ApplicationInitStatus } from '@angular/core';
 import { ApplicationStatusComponent } from './modules/user-module/application-status/application-status.component';
