@@ -5,7 +5,7 @@ import { ApplicationFormComponent } from './modules/application-form/application
 import { routes as applicationFormRoutes } from './modules/application-form/form.routes';
 import { UserInfoComponent } from './modules/user-info/user-info.component';
 import { ApplicationInitStatus } from '@angular/core';
-import { ApplicationStatusComponent } from './modules/application-status/application-status.component';
+import { ApplicationStatusComponent } from './modules/user-module/application-status/application-status.component';
 import { FeedbackComponent } from './modules/user-module/feedback/feedback.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { PaymentComponent } from './modules/payment/payment.component';
@@ -15,6 +15,7 @@ import { UserHomeComponent } from './modules/user-module/user-home/user-home.com
 import { BreadcrumbComponent } from './modules/shared/breadcrumb/breadcrumb.component';
 import { UserLayoutComponent } from './modules/user-module/user-layout/user-layout.component';
 import { PageNotFoundComponent } from './modules/shared/page-not-found/page-not-found.component';
+import { FaqComponent } from './modules/user-module/faq/faq.component';
 
 export const routes: Routes = [
   //
@@ -26,15 +27,22 @@ export const routes: Routes = [
     path: 'user-home',
     component: UserLayoutComponent,
     children: [
-      { path: '', component: UserHomeComponent, data: { breadcrumb: 'Home' } },
+      { path: '', component: UserHomeComponent,
+        canActivate: [AuthGuard], data: { breadcrumb: 'Home' } },
 
       {
         path: 'feedback',
         component: FeedbackComponent,
+        canActivate: [AuthGuard],
         data: { breadcrumb: 'Feedback' },
       },
+      { path: 'faq', component: FaqComponent, data: { breadcrumb: 'FAQ' } },
 
-
+      {
+        path: 'history',
+        component: ApplicationStatusComponent,
+        canActivate: [AuthGuard],data: { breadcrumb: 'History' }
+      },
  
   
       
@@ -77,7 +85,7 @@ export const routes: Routes = [
     children: userRoutes,
   },
   {
-    path: 'application-status',
+    path: 'history',
     component: ApplicationStatusComponent,
     canActivate: [AuthGuard],
   },
