@@ -24,6 +24,7 @@ import { User } from '../../../../models/user.model';
 import { ToastService } from '../../../../services/toast.service';
 import { ApplicationFormService } from '../../../../services/applicationForm.service';
 import { StateEnum } from '../../../../models/enums/enums';
+import { UserNavbarComponent } from '../../user-navbar/user-navbar.component';
 
 
 // Function to map state name to the corresponding number
@@ -34,7 +35,7 @@ const stateNameToNumber = (stateName: string): number => {
 @Component({
   selector: 'app-section',
   standalone: true,
-  imports: [RouterLink, NgClass, ReactiveFormsModule,CommonModule],
+  imports: [RouterLink, NgClass, ReactiveFormsModule,CommonModule,UserNavbarComponent],
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css'],
 })

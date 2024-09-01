@@ -7,6 +7,7 @@ import { ToastService } from '../../../../services/toast.service';
 import { ApplicationFormService } from '../../../../services/applicationForm.service';
 import { Address, ApplicantDetails, EmergencyContact, FamilyDetails, MasterDetails, OtherDetails, ServiceRequired } from '../../../../models/application.model';
 import { StateEnum } from '../../../../models/enums/enums';
+import { UserNavbarComponent } from '../../user-navbar/user-navbar.component';
 
 
 // Function to map state name to the corresponding number
@@ -17,7 +18,7 @@ const stateNameToNumber = (stateName: string): number => {
 @Component({
   selector: 'app-renew-application',
   standalone: true,
-  imports: [ReactiveFormsModule,NgClass,CommonModule],
+  imports: [ReactiveFormsModule,NgClass,CommonModule,UserNavbarComponent],
   templateUrl: './renewal-section.component.html',
   styleUrl: './renewal-section.component.css'
 })
