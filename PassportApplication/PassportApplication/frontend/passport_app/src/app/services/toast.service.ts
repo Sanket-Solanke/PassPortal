@@ -9,57 +9,72 @@ export class ToastService {
   showError(title: string) {
     Swal.fire({
       toast: true,
-      position: 'top-end',
+      position: 'bottom-right', // Position at the bottom right
       icon: 'error',
       title: title,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000, // Timer for visibility
       timerProgressBar: true,
-      background: "#f5f3f3",
-      color: "#ba0e0e",
+      background: "rgba(231, 76, 60, 0.8)", // Semi-transparent red background
+      color: "#ffffff", // White text
+      customClass: {
+        container: 'toast-container',
+        popup: 'toast-popup'
+      }
     });
   }
 
   showSuccess(title: string) {
     Swal.fire({
       toast: true,
-      position: 'top-end',
+      position: 'bottom-right', // Position at the bottom right
       icon: 'success',
       title: title,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000, // Timer for visibility
       timerProgressBar: true,
-      background: "#050505",
-      color: "#2ce20c",
+      background: "rgba(46, 204, 113, 0.8)", // Semi-transparent green background
+      color: "#ffffff", // White text
+      customClass: {
+        container: 'toast-container',
+        popup: 'toast-popup'
+      }
     });
   }
 
   showWarning(title: string) {
     Swal.fire({
       toast: true,
-      position: 'top-end',
+      position: 'bottom-right', // Position at the bottom right
       icon: 'warning',
       title: title,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000, // Timer for visibility
       timerProgressBar: true,
-      background: "#f5f3f3",
-      color: "#e0a800",
+      background: "rgba(243, 156, 18, 0.8)", // Semi-transparent yellow background
+      color: "#ffffff", // White text
+      customClass: {
+        container: 'toast-container',
+        popup: 'toast-popup'
+      }
     });
   }
 
   showInfo(title: string) {
     Swal.fire({
       toast: true,
-      position: 'top-end',
+      position: 'bottom-right', // Position at the bottom right
       icon: 'info',
       title: title,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000, // Timer for visibility
       timerProgressBar: true,
-      background: "#f5f3f3",
-      color: "#17a2b8",
+      background: "rgba(52, 152, 219, 0.8)", // Semi-transparent blue background
+      color: "#ffffff", // White text
+      customClass: {
+        container: 'toast-container',
+        popup: 'toast-popup'
+      }
     });
   }
-  
 }
