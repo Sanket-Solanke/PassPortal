@@ -1,29 +1,12 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { from } from 'rxjs';
-import {
-  Address,
-  ApplicantDetails,
-  ApplicationDocument,
-  EmergencyContact,
-  FamilyDetails,
-  MasterDetails,
-  OtherDetails,
-  ServiceRequired
-} from '../../../models/application.model';
-import { User } from '../../../models/user.model';
-import { ToastService } from '../../../services/toast.service';
-import { ApplicationFormService } from '../../../services/applicationForm.service';
-import { StateEnum } from '../../../models/enums/enums';
+import { Component, inject } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../../../models/user.model';
+import { ToastService } from '../../../../services/toast.service';
+import { ApplicationFormService } from '../../../../services/applicationForm.service';
+import { Address, ApplicantDetails, EmergencyContact, FamilyDetails, MasterDetails, OtherDetails, ServiceRequired } from '../../../../models/application.model';
+import { StateEnum } from '../../../../models/enums/enums';
 
 
 // Function to map state name to the corresponding number
@@ -32,13 +15,14 @@ const stateNameToNumber = (stateName: string): number => {
 };
 
 @Component({
-  selector: 'app-section',
+  selector: 'app-renew-application',
   standalone: true,
-  imports: [RouterLink, NgClass, ReactiveFormsModule,CommonModule],
-  templateUrl: './section.component.html',
-  styleUrls: ['./section.component.css'],
+  imports: [ReactiveFormsModule,NgClass,CommonModule],
+  templateUrl: './renewal-section.component.html',
+  styleUrl: './renewal-section.component.css'
 })
-export class SectionComponent implements OnInit {
+export class RenewalFormComponent {
+
   sectionNo: number = 1;
   selectedFilter: string = 'service_required';
 
@@ -57,6 +41,7 @@ export class SectionComponent implements OnInit {
     pancard: null,
     dobProof: null,
     photo: null,
+    recentPassport:null
   };
   filterMap: { [key: number]: string } = {
     1: 'service_required',
@@ -66,16 +51,17 @@ export class SectionComponent implements OnInit {
     5: 'emergency_contact',
     6: 'other_details',
     7: 'upload_documents',
-  };
+  }
+
   
-  //validators
   form = new FormGroup({
     service_required: new FormGroup({
       applicationType: new FormControl('', Validators.required),
       pagesRequired: new FormControl('', Validators.required),
       validityReq: new FormControl('', Validators.required),
+      reasonForRenewal: new FormControl('',[Validators.required]),
+      changeInAppearance : new FormControl('',Validators.required)
     }),
-  
     applicant_details: new FormGroup({
       applicantFirstName: new FormControl('', Validators.required),
       applicantLastName: new FormControl('', Validators.required),
@@ -102,8 +88,10 @@ export class SectionComponent implements OnInit {
       applicantEmail:new FormControl('',Validators.required),
       applicantMobileNo:new FormControl('',Validators.required),
       aadharcard: new FormControl('', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]),
+      dateOfIssue:new FormControl('',Validators.required),
+      passportNo:new FormControl('',Validators.required)
     }),
-  
+
     family_details: new FormGroup({
       fathersFirstName: new FormControl('', Validators.required),
       fathersLastName: new FormControl('', Validators.required),
@@ -119,7 +107,7 @@ export class SectionComponent implements OnInit {
       motherPassportNo: new FormControl(''),
       motherNationality: new FormControl(''),
     }),
-  
+
     residential_address: new FormGroup({
       tHouseNo: new FormControl('', Validators.required),
       tStreet: new FormControl('', Validators.required),
@@ -136,7 +124,7 @@ export class SectionComponent implements OnInit {
       State: new FormControl({ value: '', disabled: false }),
       Pincode: new FormControl({ value: '', disabled: true }),
     }),
-  
+
     emergency_contact: new FormGroup({
       contactName: new FormControl('', Validators.required),
       mobile: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
@@ -148,14 +136,7 @@ export class SectionComponent implements OnInit {
       pincode: new FormControl('',Validators.required),
       country: new FormControl('',Validators.required),
     }),
-  
-    passport_details: new FormGroup({
-      applied_but_not_issued: new FormControl('', Validators.required),
-      file_number: new FormControl(''),
-      application_month_year: new FormControl(''),
-      passport_office: new FormControl(''),
-    }),
-  
+
     other_details: new FormGroup({
       criminalConvictions: new FormControl('', Validators.required),
       refusedPassport: new FormControl('', Validators.required),
@@ -174,17 +155,17 @@ export class SectionComponent implements OnInit {
     
     }),
   
-  
     upload_documents: new FormGroup({
       aadharCard: new FormControl('', Validators.required),
       pancard: new FormControl('', Validators.required),
       dobProof: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
+      recentPassport : new FormControl('',Validators.required)
     }),
   });
-  
-  
-  ngOnInit(): void {
+
+
+  ngOnInit(){
     this.activatedRoute.params.subscribe((params) => {
       this.sectionNo = +params['sectionNo'];
       this.updateSelectedFilter();
@@ -194,8 +175,7 @@ export class SectionComponent implements OnInit {
       this.togglePermanentFields(value === 'true');
     });
   }
-
-
+  
   togglePermanentFields(isPermanent: boolean) {
     const residentialAddress = this.form.get('residential_address') as FormGroup;
     if (isPermanent) {
@@ -226,10 +206,6 @@ export class SectionComponent implements OnInit {
       residentialAddress.get('Pincode')?.enable();
     }
   }
-  selectFilter(filter: string, sectionNo: string): void {
-    this.selectedFilter = filter;
-    this.router.navigate(['application-form', 'section', sectionNo]);
-  }
 
   onClickNext(sectionNo: number): void {
     const sectionName = this.filterMap[sectionNo];
@@ -238,7 +214,7 @@ export class SectionComponent implements OnInit {
     if (currentGroup && currentGroup.valid) {
       this.saveSectionData(sectionName);
       this.currentSection = sectionNo + 1;
-      this.router.navigate(['application-form', 'section', this.currentSection]);
+      this.router.navigate(['application-form', 'renewal-section', this.currentSection]);
     } else {
       console.log("Invalid Form");
       this.markFormGroupTouched(currentGroup);
@@ -254,6 +230,8 @@ export class SectionComponent implements OnInit {
             applicationType: serviceRequiredFormValue.applicationType ? parseInt(serviceRequiredFormValue.applicationType) : 0,
             pagesRequired: serviceRequiredFormValue.pagesRequired ? parseInt(serviceRequiredFormValue.pagesRequired) : 0,
             validityReq: serviceRequiredFormValue.validityReq ? parseInt(serviceRequiredFormValue.validityReq) : 0,
+            reasonForRenewal:serviceRequiredFormValue.reasonForRenewal ? parseInt(serviceRequiredFormValue.reasonForRenewal): 0,
+            changeInAppearance:serviceRequiredFormValue.changeInAppearance ? parseInt(serviceRequiredFormValue.changeInAppearance) : 0
           };
           this.applicationFormService.createServiceRequired(serviceRequired).subscribe({
             next: (data) => {
@@ -298,7 +276,8 @@ export class SectionComponent implements OnInit {
             aliasName: applicantDetailsFormValue.aliasName ?? '',
             applicantEmail:applicantDetailsFormValue.applicantEmail ?? '',
             mobileNo: applicantDetailsFormValue.applicantMobileNo ?? '',
-            passportNo: ''
+            passportNo: applicantDetailsFormValue.passportNo ?? '',
+            dateOfIssue : applicantDetailsFormValue.dateOfIssue ? new Date(applicantDetailsFormValue.dateOfIssue) : new Date(),
           };
           this.applicationFormService.createApplicantDetails(applicantDetails).subscribe({
             next: (data) =>{
@@ -464,13 +443,13 @@ export class SectionComponent implements OnInit {
         console.error('Unknown section:', sectionName);
     }
   }
-  
+
   getStatesList(): { key: string, value: number }[] {
     return Object.entries(StateEnum)
       .filter(([key, value]) => typeof value === 'number') // Ensure to get only the numerical values
       .map(([key, value]) => ({ key, value: value as number })); // Convert into an array of key-value pairs
   }
-  
+
   convertToEnum(value: string | null): number {
 
     return value ? parseInt(value) : 0;
@@ -518,6 +497,25 @@ export class SectionComponent implements OnInit {
     localStorage.setItem('masterDetails', JSON.stringify(this.masterDetails));
 }
 
+
+  selectFilter(filter: string, sectionNo: string): void {
+    this.selectedFilter = filter;
+    this.router.navigate(['application-form', 'renewal-section', sectionNo]);
+  }
+ 
+
+
+  markAllFormGroupsTouched(): void {
+    Object.values(this.form.controls).forEach((control) => {
+      control.markAsTouched();
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
+    });
+  }
+
+
+
   onSubmit(): void {
     if (this.form.get('upload_documents')?.invalid) {
       console.log( "InVALID FORM",this.form)
@@ -537,8 +535,10 @@ export class SectionComponent implements OnInit {
     if (this.selectedFiles['pancard']) formData.append('pancard', this.selectedFiles['pancard']);
     if (this.selectedFiles['dobProof']) formData.append('dobProof', this.selectedFiles['dobProof']);
     if (this.selectedFiles['photo']) formData.append('photo', this.selectedFiles['photo']);
+    if (this.selectedFiles['recentPassport']) formData.append('recentPassport', this.selectedFiles['recentPassport']);
 
-    this.applicationFormService.createNewDocument(formData).subscribe({
+
+    this.applicationFormService.createRenewalDocument(formData).subscribe({
       next: (data) =>{
         this.masterDetails.documentTableId=data.documentTableId
         this.updateMasterDetailsInStorage()
@@ -553,7 +553,7 @@ export class SectionComponent implements OnInit {
         this.masterDetails = JSON.parse(masterDetailsJson);
     }
 
-    this.masterDetails.passportType=1;
+    this.masterDetails.passportType=2;
     this.masterDetails.applicationStatus=1;
     this.masterDetails.paymentStatus=1;
     this.masterDetails.userId=this.currentUser?.userId ?? 0;
