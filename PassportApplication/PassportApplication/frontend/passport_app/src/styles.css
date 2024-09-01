@@ -316,3 +316,33 @@ input:focus {
 .p-toast {
   z-index: 1050;
 }
+/* Toast container styling */
+.toast-container {
+  z-index: 1050; /* Ensure it appears above other elements */
+}
+
+.toast-popup {
+  border-radius: 8px; /* Rounded corners for the toast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visibility */
+  animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
