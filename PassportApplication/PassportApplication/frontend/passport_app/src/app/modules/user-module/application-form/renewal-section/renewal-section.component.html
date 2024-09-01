@@ -1,50 +1,107 @@
-
-<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link" id="service_required-tab" role="tab"
-      aria-controls="service_required" aria-selected="true"
+<app-user-navbar class="mb-5"></app-user-navbar>
+<ul class="nav nav-tabs bg-c1 rounded-5 p-2 mt-5" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="service_required-tab"
+      aria-controls="service_required"
+      aria-selected="true"
       [ngClass]="{'active': selectedFilter === 'service_required'}"
-      (click)="selectFilter('service_required','1')">1. Service Required</a>
+      (click)="selectFilter('service_required','1')"
+      type="button"
+      role="tab"
+    >
+      1. Service Required
+    </button>
   </li>
-  <li class="nav-item ">
-    <a class="nav-link" id="applicant_details-tab" role="tab"
-      aria-controls="applicant_details" aria-selected="false" 
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="applicant_details-tab"
+      aria-controls="applicant_details"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'applicant_details'}"
-      (click)="selectFilter('applicant_details','2')">2. Applicant</a>
+      (click)="selectFilter('applicant_details','2')"
+      type="button"
+      role="tab"
+    >
+      2. Applicant
+    </button>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" id="family_details-tab" role="tab"
-      aria-controls="family_details" aria-selected="false"
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="family_details-tab"
+      aria-controls="family_details"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'family_details'}"
-      (click)="selectFilter('family_details','3')">3. Family</a>
-  </li> 
-  <li class="nav-item">
-    <a class="nav-link" id="residential-address-tab" role="tab"
-      aria-controls="residential-address" aria-selected="false"
+      (click)="selectFilter('family_details','3')"
+      type="button"
+      role="tab"
+    >
+      3. Family
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="residential-address-tab"
+      aria-controls="residential-address"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'residential_address'}"
-      (click)="selectFilter('residential-address','4')">4. Address</a>
+      (click)="selectFilter('residential-address','4')"
+      type="button"
+      role="tab"
+    >
+      4. Address
+    </button>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" id="emergency_contact-tab" role="tab"
-      aria-controls="emergency_contact" aria-selected="false"
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="emergency_contact-tab"
+      aria-controls="emergency_contact"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'emergency_contact'}"
-      (click)="selectFilter('emergency_contact','5')">5. Emergency Contact</a>
+      (click)="selectFilter('emergency_contact','5')"
+      type="button"
+      role="tab"
+    >
+      5. Emergency Contact
+    </button>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" id="other-details-tab" role="tab"
-      aria-controls="other-details" aria-selected="false"
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="other-details-tab"
+      aria-controls="other-details"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'other_details'}"
-      (click)="selectFilter('other-details','6')">6. Other</a>
+      (click)="selectFilter('other-details','6')"
+      type="button"
+      role="tab"
+    >
+      6. Other
+    </button>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" id="upload-documents-tab" role="tab"
-      aria-controls="upload-documents" aria-selected="false"
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link rounded-5"
+      id="upload-documents-tab"
+      aria-controls="upload-documents"
+      aria-selected="false"
       [ngClass]="{'active': selectedFilter === 'upload_documents'}"
-      (click)="selectFilter('upload-documents','7')">7. Documents</a>
+      (click)="selectFilter('upload-documents','7')"
+      type="button"
+      role="tab"
+    >
+      7. Documents
+    </button>
   </li>
 </ul>
 
-  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<div class="container-fluid">
+  <main role="main" class=" col-lg-12  mt-3 px-4 py-3 border">
     <div class="mt-3">
       <form
         [formGroup]="form"
@@ -70,7 +127,7 @@
                     required />
                   <label class="custom-radio-label" for="application_type_normal">
                     Normal
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
           
                   <input
@@ -83,7 +140,7 @@
                     required />
                   <label class="custom-radio-label" for="application_type_tatkaal">
                     Tatkaal
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('service_required.applicationType')?.invalid && form.get('service_required.applicationType')?.touched" class="control-error">
@@ -106,7 +163,7 @@
                     required />
                   <label class="custom-radio-label" for="passport_booklet_type_36">
                     36 Pages
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
           
                   <input
@@ -119,7 +176,7 @@
                     required />
                   <label class="custom-radio-label" for="passport_booklet_type_60">
                     60 Pages
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('service_required.pagesRequired')?.invalid && form.get('service_required.pagesRequired')?.touched" class="control-error">
@@ -142,7 +199,7 @@
                     required />
                   <label class="custom-radio-label" for="validity_required_10">
                     10 Years
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
           
                   <input
@@ -155,7 +212,7 @@
                     required />
                   <label class="custom-radio-label" for="validity_required_up_to_18">
                     Up to age 18 (For minors between 15 and 18 years)
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('service_required.validityReq')?.invalid && form.get('service_required.validityReq')?.touched" class="control-error">
@@ -222,7 +279,7 @@
                   type="button"
                   (click)="onClickNext(1)"
                 >
-                  Next
+                  Next <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </fieldset>
@@ -249,7 +306,7 @@
                     maxlength="45"
                     placeholder="Enter your given name"
                     formControlName="applicantFirstName" />
-                  <em>[Given Name means First name followed by Middle name (If any)(Initials not allowed)]</em>
+                  <em></em>
                   <p class="control-error" *ngIf="form.get('applicant_details.applicantFirstName')?.invalid && form.get('applicant_details.applicantFirstName')?.touched" class="control-error">
                     Please enter your given name
                   </p>
@@ -288,7 +345,7 @@
                     formControlName="alias" />
                   <label class="custom-radio-label" for="known_by_other_names_yes">
                     Yes
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -299,7 +356,7 @@
                     formControlName="alias" />
                   <label class="custom-radio-label" for="known_by_other_names_no">
                     No
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 @if(form.get('applicant_details.alias')?.value === 'yes'){
@@ -337,7 +394,7 @@
                     formControlName="nameChanged" />
                   <label class="custom-radio-label" for="changed_name_yes">
                     Yes
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -348,7 +405,7 @@
                     formControlName="nameChanged" />
                   <label class="custom-radio-label" for="changed_name_no">
                     No
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.nameChanged')?.value === 'yes'">
@@ -496,7 +553,7 @@
                     formControlName="gender" />
                   <label class="custom-radio-label" for="gender_male">
                     Male
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -508,7 +565,7 @@
                     formControlName="gender" />
                   <label class="custom-radio-label" for="gender_female">
                     Female
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -520,7 +577,7 @@
                     formControlName="gender" />
                   <label class="custom-radio-label" for="gender_transgender">
                     Transgender
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.gender')?.invalid && form.get('applicant_details.gender')?.touched" class="control-error">
@@ -543,7 +600,7 @@
                     formControlName="maritialStatus" />
                   <label class="custom-radio-label" for="marital_status_single">
                     Single
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -555,7 +612,7 @@
                     formControlName="maritialStatus" />
                   <label class="custom-radio-label" for="marital_status_married">
                     Married
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -567,7 +624,7 @@
                     formControlName="maritialStatus" />
                   <label class="custom-radio-label" for="marital_status_divorced">
                     Divorced
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -579,7 +636,7 @@
                     formControlName="maritialStatus" />
                   <label class="custom-radio-label" for="marital_status_widow">
                     Widow/Widower
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -591,7 +648,7 @@
                     formControlName="maritialStatus" />
                   <label class="custom-radio-label" for="marital_status_separated">
                     Separated
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.maritialStatus')?.invalid && form.get('applicant_details.maritialStatus')?.touched" class="control-error">
@@ -614,7 +671,7 @@
                     formControlName="citizenshipBy" />
                   <label class="custom-radio-label" for="citizenship_birth">
                     Birth
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -626,7 +683,7 @@
                     formControlName="citizenshipBy" />
                   <label class="custom-radio-label" for="citizenship_descent">
                     Descent
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -638,7 +695,7 @@
                     formControlName="citizenshipBy" />
                   <label class="custom-radio-label" for="citizenship_registration">
                     Registration/Naturalization
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.citizenshipBy')?.invalid && form.get('applicant_details.citizenshipBy')?.touched" class="control-error">
@@ -699,7 +756,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_psu">
                     PSU
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -711,7 +768,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_government">
                     Government
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -723,7 +780,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_statutory">
                     Statutory Body
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -735,7 +792,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_retired">
                     Retired Government Servant
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -747,7 +804,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_self">
                     Self Employed
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -759,7 +816,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_private">
                     Private
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -771,7 +828,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_homemaker">
                     Homemaker
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -783,7 +840,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_not_employed">
                     Not Employed
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -795,7 +852,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_retired_private">
                     Retired-Private Service
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -807,7 +864,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_student">
                     Student
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -819,7 +876,7 @@
                     formControlName="employeeType" />
                   <label class="custom-radio-label" for="employment_type_others">
                     Others
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -832,7 +889,7 @@
                   <label class="custom-radio-label" for="employment_type_owners">
                     Owners, Partners & Directors of companies which are members of CII,
                     FICCI & ASSOCHAM
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p  class="control-error" *ngIf="form.get('applicant_details.employeeType')?.invalid && form.get('applicant_details.employeeType')?.touched" class="control-error">
@@ -872,7 +929,7 @@
                     formControlName="govermentServent" />
                   <label class="custom-radio-label" for="parent_spouse_government_servant_yes">
                     Yes
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -884,7 +941,7 @@
                     formControlName="govermentServent" />
                   <label class="custom-radio-label" for="parent_spouse_government_servant_no">
                     No
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.govermentServent')?.invalid && form.get('applicant_details.govermentServent')?.touched" class="control-error">
@@ -907,7 +964,7 @@
                     formControlName="education" />
                   <label class="custom-radio-label" for="education_7th">
                     7th pass or less
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -919,7 +976,7 @@
                     formControlName="education" />
                   <label class="custom-radio-label" for="education_between_8th_and_9th">
                     Between 8th and 9th Standard
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -931,7 +988,7 @@
                     formControlName="education" />
                   <label class="custom-radio-label" for="education_10th_above">
                     10th pass and above
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -943,7 +1000,7 @@
                     formControlName="education" />
                   <label class="custom-radio-label" for="education_graduate_above">
                     Graduate and above
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.education')?.invalid && form.get('applicant_details.education')?.touched" class="control-error">
@@ -966,7 +1023,7 @@
                     formControlName="nonECR" />
                   <label class="custom-radio-label" for="non_ecr_yes">
                     Yes
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -978,7 +1035,7 @@
                     formControlName="nonECR" />
                   <label class="custom-radio-label" for="non_ecr_no">
                     No
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                 </div>
                 <p class="control-error" *ngIf="form.get('applicant_details.nonECR')?.invalid && form.get('applicant_details.nonECR')?.touched" class="control-error">
@@ -1062,7 +1119,7 @@
               </div>
             </fieldset>
             <div class="text-right">
-              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(2)">Next</button>
+              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(2)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         }
@@ -1085,7 +1142,7 @@
                     maxlength="45"
                     placeholder="Enter father's given name"
                     formControlName="fathersFirstName" />
-                  <em>[Given Name means First name followed by Middle name (If any)(Initials not allowed)]</em>
+                  <em></em>
                   <p *ngIf="form.get('family_details.fathersFirstName')?.invalid && form.get('family_details.fathersFirstName')?.touched" class="control-error">
                     Please enter your father's given name.
                   </p>
@@ -1124,7 +1181,7 @@
                     maxlength="45"
                     placeholder="Enter mother's given name"
                     formControlName="mothersFirstName" />
-                  <em>[Given Name means First name followed by Middle name (If any)(Initials not allowed)]</em>
+                  <em></em>
                   <p *ngIf="form.get('family_details.mothersFirstName')?.invalid && form.get('family_details.mothersFirstName')?.touched" class="control-error">
                     Please enter your mother's given name.
                   </p>
@@ -1237,7 +1294,7 @@
                       formControlName="isMinor" />
                     <label class="custom-radio-label" for="check_minor_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1248,7 +1305,7 @@
                       formControlName="isMinor" />
                     <label class="custom-radio-label" for="check_minor_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p *ngIf="form.get('family_details.isMinor')?.invalid && form.get('family_details.isMinor')?.touched" class="control-error">
@@ -1319,7 +1376,7 @@
               </div>
             </fieldset>
             <div class="text-right">
-              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(3)">Next</button>
+              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(3)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
             <p class="control-error" *ngIf="form.get('family_details')?.invalid && form.get('family_details')?.touched" class="control-error">
               Please fill in the required fields.
@@ -1436,7 +1493,7 @@
                     formControlName="isPermanent" />
                   <label class="custom-radio-label" for="same_address_yes">
                     Yes
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                   <input
                     class="custom-radio"
@@ -1447,7 +1504,7 @@
                     formControlName="isPermanent" />
                   <label class="custom-radio-label" for="same_address_no">
                     No
-                    <span class="checkmark">&check;</span>
+                    
                   </label>
                  
                 </div>
@@ -1551,7 +1608,7 @@
               }
             </fieldset>
             <div class="text-right">
-              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(4)">Next</button>
+              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(4)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
             <p class="control-error" *ngIf="form.get('residential_address')?.invalid && form.get('residential_address')?.touched" class="control-error">
               Please fill in the required fields.
@@ -1564,8 +1621,7 @@
             <fieldset formGroupName="emergency_contact">
               <legend>
                 <b>5. Emergency Contact Details</b>
-                <h5>(Mention address only if different from present residential address)</h5>
-              </legend>
+                   </legend>
               <div id="field5_1" class="form-group">
                 <div class="form-group">
                   <label for="contactName">Name:</label>
@@ -1698,7 +1754,7 @@
               </div>
             </fieldset>
             <div class="text-right">
-              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(5)">Next</button>
+              <button class="btn btn-primary nextButton btn-custom" type="button" (click)="onClickNext(5)">Next <i class="fas fa-arrow-right"></i></button>
             </div>
             <p class="control-error" *ngIf="form.get('emergency_contact')?.invalid && form.get('emergency_contact')?.touched" class="control-error">
               Please fill in the required fields.
@@ -1727,7 +1783,7 @@
                       formControlName="criminalConvictions" />
                     <label class="custom-radio-label" for="criminalConvictions_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1739,7 +1795,7 @@
                       formControlName="criminalConvictions" />
                     <label class="custom-radio-label" for="criminalConvictions_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.criminalConvictions')?.invalid && form.get('other_details.criminalConvictions')?.touched" class="control-error">
@@ -1762,7 +1818,7 @@
                       formControlName="refusedPassport" />
                     <label class="custom-radio-label" for="refusedPassport_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1774,7 +1830,7 @@
                       formControlName="refusedPassport" />
                     <label class="custom-radio-label" for="refusedPassport_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.refusedPassport')?.invalid && form.get('other_details.refusedPassport')?.touched" class="control-error">
@@ -1797,7 +1853,7 @@
                       formControlName="impoundedPassport" />
                     <label class="custom-radio-label" for="impoundedPassport_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1809,7 +1865,7 @@
                       formControlName="impoundedPassport" />
                     <label class="custom-radio-label" for="impoundedPassport_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.impoundedPassport')?.invalid && form.get('other_details.impoundedPassport')?.touched" class="control-error">
@@ -1832,7 +1888,7 @@
                       formControlName="revokedPassport" />
                     <label class="custom-radio-label" for="revokedPassport_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1844,7 +1900,7 @@
                       formControlName="revokedPassport" />
                     <label class="custom-radio-label" for="revokedPassport_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.revokedPassport')?.invalid && form.get('other_details.revokedPassport')?.touched" class="control-error">
@@ -1867,7 +1923,7 @@
                       formControlName="grantedCitizenship" />
                     <label class="custom-radio-label" for="grantedCitizenship_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1879,7 +1935,7 @@
                       formControlName="grantedCitizenship" />
                     <label class="custom-radio-label" for="grantedCitizenship_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.grantedCitizenship')?.invalid && form.get('other_details.grantedCitizenship')?.touched" class="control-error">
@@ -1902,7 +1958,7 @@
                       formControlName="heldForeignPassport" />
                     <label class="custom-radio-label" for="heldForeignPassport_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1914,7 +1970,7 @@
                       formControlName="heldForeignPassport" />
                     <label class="custom-radio-label" for="heldForeignPassport_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.heldForeignPassport')?.invalid && form.get('other_details.heldForeignPassport')?.touched" class="control-error">
@@ -1937,7 +1993,7 @@
                       formControlName="surrenderedIndianPassport" />
                     <label class="custom-radio-label" for="surrenderedIndianPassport_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1949,7 +2005,7 @@
                       formControlName="surrenderedIndianPassport" />
                     <label class="custom-radio-label" for="surrenderedIndianPassport_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.surrenderedIndianPassport')?.invalid && form.get('other_details.surrenderedIndianPassport')?.touched" class="control-error">
@@ -1972,7 +2028,7 @@
                       formControlName="appliedRenunciation" />
                     <label class="custom-radio-label" for="appliedRenunciation_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -1984,7 +2040,7 @@
                       formControlName="appliedRenunciation" />
                     <label class="custom-radio-label" for="appliedRenunciation_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.appliedRenunciation')?.invalid && form.get('other_details.appliedRenunciation')?.touched" class="control-error">
@@ -2007,7 +2063,7 @@
                       formControlName="passportSurrendered" />
                     <label class="custom-radio-label" for="passportSurrendered_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -2019,7 +2075,7 @@
                       formControlName="passportSurrendered" />
                     <label class="custom-radio-label" for="passportSurrendered_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.passportSurrendered')?.invalid && form.get('other_details.passportSurrendered')?.touched" class="control-error">
@@ -2042,7 +2098,7 @@
                       formControlName="emergencyCertificate" />
                     <label class="custom-radio-label" for="emergencyCertificate_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -2054,7 +2110,7 @@
                       formControlName="emergencyCertificate" />
                     <label class="custom-radio-label" for="emergencyCertificate_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.emergencyCertificate')?.invalid && form.get('other_details.emergencyCertificate')?.touched" class="control-error">
@@ -2077,7 +2133,7 @@
                       formControlName="deported" />
                     <label class="custom-radio-label" for="deported_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -2089,7 +2145,7 @@
                       formControlName="deported" />
                     <label class="custom-radio-label" for="deported_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.deported')?.invalid && form.get('other_details.deported')?.touched" class="control-error">
@@ -2112,7 +2168,7 @@
                       formControlName="repatriated" />
                     <label class="custom-radio-label" for="repatriated_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -2124,7 +2180,7 @@
                       formControlName="repatriated" />
                     <label class="custom-radio-label" for="repatriated_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.repatriated')?.invalid && form.get('other_details.repatriated')?.touched" class="control-error">
@@ -2147,7 +2203,7 @@
                       formControlName="registeredMission" />
                     <label class="custom-radio-label" for="registeredMission_yes">
                       Yes
-                      <span class="checkmark">&check;</span>
+
                     </label>
                     <input
                       class="custom-radio"
@@ -2159,7 +2215,7 @@
                       formControlName="registeredMission" />
                     <label class="custom-radio-label" for="registeredMission_no">
                       No
-                      <span class="checkmark">&check;</span>
+
                     </label>
                   </div>
                   <p class="control-error" *ngIf="form.get('other_details.registeredMission')?.invalid && form.get('other_details.registeredMission')?.touched" class="control-error">
@@ -2189,7 +2245,7 @@
                 class="btn btn-primary nextButton btn-custom"
                 type="button"
                 (click)="onClickNext(6)">
-                Next
+                Next <i class="fas fa-arrow-right"></i>
               </button>
             </div>
           
@@ -2200,122 +2256,89 @@
         }
         @if(sectionNo==7){
           <div id="section7" class="form-group section">
-            <fieldset formGroupName="upload_documents">
-              <legend><b>7. Upload Documents</b></legend>
-              <form>
-                <div>
-                  <label class="form-check-label" for="aadharCard">Upload any of the below documents for identity proof:
-                    <ul>
-                      <li>Aadhaar Card/e-Aadhar containing the 12 digit Aadhaar number issued by the Unique Identification Authority of India(UIDAI)</li>
-                      <li>Electors Photo Identity Card (EPIC)</li>
-                      <li>Last Passport issued (in case of re-issue only)</li>
-                      <li>Permanent Account Number(PAN)</li>
-                      <li>Bank Passbook or Kisan Passbook or Post Office Passbook</li>
-                      <li>Student Photo Identity Cards issued by Recognized Educational Institutions</li>
-                      <li>Driving Licenses (valid and within the jurisdiction of State of submission of applicant)</li>
-                      <li>Birth Certificates issued under the Registration of Births and Deaths Act, 1969 (18 of 1969)</li>
-                      <li>Rations Cards</li>
-                      <li>Arms License issued under the Arms Act, 1959(54 of 1959)</li>
-                    </ul>
-                  </label>
-                  <br>
-                  <input type="file" id="aadharCard" name="aadharCard" required formControlName="aadharCard" (change)="onFileSelected($event, 'aadharCard')" />
-                  <p class="control-error" *ngIf="form.get('upload_documents.aadharCard')?.invalid && form.get('upload_documents.aadharCard')?.touched" class="control-error">
-                    Please upload the Identity Proof.
-                  </p>
-                </div>
-          
-                <hr />
-                <div>
-                  <label for="pancard">Upload any of the below documents for address proof:
-                    <ul>
-                      <li>Water Bill</li>
-                      <li>Telephone (landline or post-paid mobile bill)</li>
-                      <li>Electricity bill</li>
-                      <li>Income Tax Assessment Order</li>
-                      <li>Election Commission Photo ID card</li>
-                      <li>Proof of Gas Connection</li>
-                      <li>Certificate from Employer of reputed companies on letter head</li>
-                      <li>Spouse's passport copy (First and last page including family details mentioning applicant's name as spouse of the passport holder), (provided the applicant's present address matches the address mentioned in the spouse's passport)</li>
-                      <li>Parent's passport copy, in case of minors(First and last page)</li>
-                      <li>Aadhaar Card</li>
-                      <li>Rent Agreement</li>
-                      <li>Photo Passbook of running Bank Account (Scheduled Public Sector Banks, Scheduled Private Sector Indian Banks and Regional Rural Banks only)</li>
-                    </ul>
-                  </label>
-                  <input type="file" id="pancard" name="pancard" required formControlName="pancard" (change)="onFileSelected($event, 'pancard')"/>
-                  <p class="control-error" *ngIf="form.get('upload_documents.pancard')?.invalid && form.get('upload_documents.pancard')?.touched" class="control-error">
-                    Please upload the Address Proof.
-                  </p>
-                </div>
-          
-                <hr />
-                <div>
-                  <label for="dobProof" class="form-check-label">Upload any of the below documents for verification of date of birth:
-                    <ul>
-                      <li>Birth certificated issued by government authority</li>
-                      <li>Transfer/school leaving certificate</li>
-                      <li>Policy Bond issued by the Public Life Insurance Corporations/Companies having the DOB of the holder of the insurance policy</li>
-                      <li>Election Photo Identity Card (EPIC) issued by the Election Commission of India</li>
-                      <li>PAN Card issued by the Income Tax Department</li>
-                      <li>Driving License issued by the Transport department of concerned state Government</li>
-                      <li>A declaration given by the Head of the Orphanage/Child Care Home on their official letterhead of the organization confirming the DOB of the applicant</li>
-                    </ul>
-                  </label>
-                  <br>
-                  <input type="file" id="dobProof" name="dobProof" required formControlName="dobProof" (change)="onFileSelected($event, 'dobProof')" />
-                  <p class="control-error" *ngIf="form.get('upload_documents.dobProof')?.invalid && form.get('upload_documents.dobProof')?.touched" class="control-error">
-                    Please upload a DOB Proof.
-                  </p>
-                </div>
-          
-                <hr />
-                <div>
-                  <label for="photo" class="form-check-label">Upload passport size photo (taken in last 2 months)</label>
-                  <br>
-                  <input type="file" id="photo" name="photo" required formControlName="photo" (change)="onFileSelected($event, 'photo')"/>
-                  <p class="control-error" *ngIf="form.get('upload_documents.photo')?.invalid && form.get('upload_documents.photo')?.touched" class="control-error">
-                    Please upload a Photo.
-                  </p>
-                </div>
-                
-                <div class="form-group">
-                  <ul>
-                    <li>
-                      Recent Passport Photo (refer to official guidelines for size and
-                      format)
-                    </li>
-                    <li>Copy of Current Passport Biodata Page</li>
-                  </ul>
-                  <label for="recentPassport" class="form-check-label">Recent Paassport</label>
-                  <br>
-                  <input type="file" id="recentPassport" name="recentPassport" required formControlName="recentPassport" (change)="onFileSelected($event, 'recentPassport')"/>
-                  <p class="control-error" *ngIf="form.get('upload_documents.recentPassport')?.invalid && form.get('upload_documents.recentPassport')?.touched" class="control-error">
-                    Please upload a Photo.
-                  </p>
-                  
-                </div>
-              </form>
-              
-              <div class="text-right">
-                <button
-                    type="submit"
-                    id="submit"
-                    class="btn btn-primary btn-custom"
-                   
-                >
-                    Submit
-                </button>
-            </div>
-            @if(this.form.invalid){
-                <p class="control-error">
-                    Please fill in the required fields.
-                </p>
-            }
-            </fieldset>
+        <fieldset formGroupName="upload_documents">
+  <legend><b>7. Upload Documents</b></legend>
+  <form>
+    <div>
+      <label for="identityProof">Upload one of the following for identity proof:</label>
+      <ul>
+        <li>Government IDs (e.g., Aadhaar, PAN, Passport)</li>
+        <li>Driving License</li>
+        <li>Bank Passbook</li>
+        <li>Student ID</li>
+      </ul>
+      <input type="file" id="identityProof" name="identityProof" required formControlName="identityProof" (change)="onFileSelected($event, 'identityProof')" />
+      <p class="control-error" *ngIf="form.get('upload_documents.identityProof')?.invalid && form.get('upload_documents.identityProof')?.touched">
+        Please upload a valid Identity Proof.
+      </p>
+    </div>
+
+    <hr />
+    <div>
+      <label for="addressProof">Upload one of the following for address proof:</label>
+      <ul>
+        <li>Utility Bill (e.g., Water, Electricity)</li>
+        <li>Rent Agreement</li>
+        <li>Bank Passbook</li>
+        <li>Spouse/Parent's Passport Copy (if applicable)</li>
+      </ul>
+      <input type="file" id="addressProof" name="addressProof" required formControlName="addressProof" (change)="onFileSelected($event, 'addressProof')" />
+      <p class="control-error" *ngIf="form.get('upload_documents.addressProof')?.invalid && form.get('upload_documents.addressProof')?.touched">
+        Please upload a valid Address Proof.
+      </p>
+    </div>
+
+    <hr />
+    <div>
+      <label for="dobProof">Upload one of the following for date of birth proof:</label>
+      <ul>
+        <li>Birth Certificate</li>
+        <li>School Certificate</li>
+        <li>PAN Card</li>
+        <li>Driving License</li>
+      </ul>
+      <input type="file" id="dobProof" name="dobProof" required formControlName="dobProof" (change)="onFileSelected($event, 'dobProof')" />
+      <p class="control-error" *ngIf="form.get('upload_documents.dobProof')?.invalid && form.get('upload_documents.dobProof')?.touched">
+        Please upload a valid DOB Proof.
+      </p>
+    </div>
+
+    <hr />
+    <div>
+      <label for="photo">Upload a recent passport-size photo (taken within last 2 months):</label>
+      <input type="file" id="photo" name="photo" required formControlName="photo" (change)="onFileSelected($event, 'photo')" />
+      <p class="control-error" *ngIf="form.get('upload_documents.photo')?.invalid && form.get('upload_documents.photo')?.touched">
+        Please upload a recent Photo.
+      </p>
+    </div>
+
+    <hr />
+    <div>
+      <label for="recentPassport">Upload one of the following for passport verification:</label>
+      <ul>
+        <li>Recent Passport Photo</li>
+        <li>Copy of Passport Biodata Page</li>
+      </ul>
+      <input type="file" id="recentPassport" name="recentPassport" required formControlName="recentPassport" (change)="onFileSelected($event, 'recentPassport')" />
+      <p class="control-error" *ngIf="form.get('upload_documents.recentPassport')?.invalid && form.get('upload_documents.recentPassport')?.touched">
+        Please upload the Passport documents.
+      </p>
+    </div>
+
+    <div class="text-right">
+      <button type="submit" id="submit" class="btn btn-primary btn-custom">Submit</button>
+    </div>
+
+    <p class="control-error" *ngIf="form.invalid">
+      Please fill in the required fields.
+    </p>
+  </form>
+</fieldset>
+
           </div>
         }
         
       </form>
     </div>
   </main>
+</div>

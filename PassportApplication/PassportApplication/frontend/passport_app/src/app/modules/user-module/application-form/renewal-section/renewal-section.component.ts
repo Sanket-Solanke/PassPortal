@@ -565,7 +565,7 @@ export class RenewalFormComponent {
         this.toastService.showSuccess("Form Submitted Successfully");
             console.log('Form Submitted Successfully',this.form);
             localStorage.removeItem('masterDetails');
-            this.router.navigate(['application-status'])
+            this.router.navigate(['history'])
       },
       error:(err)=>{
         this.toastService.showError("Error submitting the form!");
